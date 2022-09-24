@@ -21,14 +21,26 @@ class ProductFactory extends Factory
     {
 
         return [
-            'product_type_id' => 1,
+            'product_type_id' => 502,
             'status' => 'published',
-            'brand' => 'Foo',
+            'brand' => 'Dr. Martens',
             'attribute_data' => [
-                'name' => new TranslatedText(collect([
-                    'en' => new Text(fake()->name()),
-                ])),
-                'description' => new Text(fake()->text(250)),
+                'name' => new TranslatedText(
+                    collect(
+                        [
+                            'en' => new Text(fake()->name()),
+                            'hu' => new Text(fake()->name()),
+                        ]
+                    )
+                ),
+                ['description' => new TranslatedText(
+                    collect(
+                        [
+                            'en' => new Text(fake()->sentence(6, true)),
+                            'hu' => new Text(fake()->sentence(6, true)),
+                        ]
+                    )
+                ),
             ],
         ];
     }
