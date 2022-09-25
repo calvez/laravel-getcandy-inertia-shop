@@ -4,7 +4,7 @@
             <div v-if="product.media" v-for="media in product.media">
                 <figure>
                     <img class="w-full aspect-square rounded-lg" :src="media.original_url"
-                        :alt="product.attribute_data.name" :title="product.attribute_data.name" />
+                        :alt="product.attribute_data.name[$page.props.currentLanguage]" :title="product.attribute_data.name[$page.props.currentLanguage]" />
                 </figure>
             </div>
             <div v-else>
@@ -14,10 +14,10 @@
                 </figure>
             </div>
             <div class="card-body">
-                <h2 class="card-title">{{ product.attribute_data.name }}</h2>
-                <p>{{ product.attribute_data.description ?? "&nbsp;" }}</p>
-                <p>{{ product.brand ?? "&nbsp;" }}</p>
-                <p>{{ product.attribute_data.description ?? "&nbsp;" }}</p>
+                <h2 class="card-title">{{ product.attribute_data.name[$page.props.currentLanguage] }}</h2>
+                <p>{{ product.attribute_data.description[$page.props.currentLanguage] ?? "&nbsp;" }}</p>
+                <p>{{ product.brand[$page.props.currentLanguage] ?? "&nbsp;" }}</p>
+                <p>{{ product.attribute_data.description[$page.props.currentLanguage] ?? "&nbsp;" }}</p>
                 <div class="card-actions justify-end">
                     <button class="btn btn-primary">Buy Now</button>
                 </div>
@@ -43,4 +43,3 @@ export default {
     },
 };
 </script>
-

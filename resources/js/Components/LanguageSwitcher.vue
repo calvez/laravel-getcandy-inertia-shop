@@ -24,3 +24,18 @@
         </div>
     </div>
 </template>
+<script>
+import { ref } from "vue";
+import { Link } from "@inertiajs/inertia-vue3";
+export default {
+    setup() {
+        let showMenu = ref(false);
+        const toggleNav = () => (showMenu.value = !showMenu.value);
+        return { showMenu, toggleNav };
+    },
+    components: {
+        Link
+    },
+};
+</script>
+
