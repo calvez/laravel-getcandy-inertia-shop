@@ -25,6 +25,12 @@ use Inertia\Inertia;
 //     ]);
 // });
 
+Route::get('language/{language}', function ($language) {
+    Session()->put('locale', $language);
+
+    return redirect()->back();
+})->name('language');
+
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
 
 require __DIR__ . '/auth.php';

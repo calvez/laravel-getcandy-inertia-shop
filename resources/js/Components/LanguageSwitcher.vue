@@ -16,7 +16,7 @@
             <ul class="menu menu-compact gap-1 p-3" tabindex="0">
                 <template v-for="lang in $page.props.languages">
                     <li>
-                        <button class="flex active"><span class="flex flex-1 justify-between">{{ lang.name}}</span>
+                        <button class="flex active"><a :href="route('language', lang.code)" class="flex flex-1 justify-between">{{ lang.name}}</a>
                         </button>
                     </li>
                 </template>
